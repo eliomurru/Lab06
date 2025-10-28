@@ -63,7 +63,7 @@ class View:
         pulsante_conferma_responsabile = ft.ElevatedButton("Conferma", on_click=self.controller.conferma_responsabile)
 
         # Altri Pulsanti da implementare (es. "Mostra" e "Cerca")
-        # TODO
+        pulsante_mostra_auto = ft.ElevatedButton(text="Mostra", on_click=self.controller.mostra_auto)
 
         # --- LAYOUT ---
         self.page.add(
@@ -82,7 +82,8 @@ class View:
             ft.Divider(),
 
             # Sezione 3
-            # TODO
+            ft.Text(value='Lista Automobili', size=16, weight=ft.FontWeight.BOLD),
+            pulsante_mostra_auto
 
             # Sezione 4
             # TODO

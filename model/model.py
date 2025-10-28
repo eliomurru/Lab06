@@ -13,6 +13,8 @@ class Autonoleggio:
     def __init__(self, nome, responsabile):
         self._nome = nome
         self._responsabile = responsabile
+        self.conn = get_connection()
+        self.cursor = self.conn.cursor()
 
     @property
     def nome(self):
@@ -35,8 +37,15 @@ class Autonoleggio:
             Funzione che legge tutte le automobili nel database
             :return: una lista con tutte le automobili presenti oppure None
         """
+        query = "SELECT * FROM automobile"
+        self.cursor.execute(query)
+        risultati = self.cursor.fetchall()
 
-        # TODO
+        if not risultati:
+            return None
+
+        automobili = [Automobile(*r) for r in risultati]
+        return automobili
 
     def cerca_automobili_per_modello(self, modello) -> list[Automobile] | None:
         """

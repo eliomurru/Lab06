@@ -28,4 +28,6 @@ class Controller:
         self._view.update()
 
     # Altre Funzioni Event Handler
-    # TODO
+    def mostra_auto(self,e):
+        lista_auto = self._model.get_automobili()
+        self._view.

@@ -103,7 +103,6 @@ Lab06/
 │   ├── controller.py (DA MODIFICARE)
 │   └── view.py (DA MODIFICARE)
 │
-├── __init__.py
 ├── autonoleggio.sql (DA IMPORTARE SU phpMyAdmin)
 └── main.py (DA ESEGUIRE)
  ```
