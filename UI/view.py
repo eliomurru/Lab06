@@ -49,6 +49,9 @@ class View:
         # TextField per responsabile
         self.input_responsabile = ft.TextField(value=self.controller.get_responsabile(), label="Responsabile")
 
+        #TextField per lista auto aggiornata
+        self.text_lista_auto = ft.Text(value='Automobili', size=16, weight=ft.FontWeight.BOLD)
+
         # ListView per mostrare la lista di auto aggiornata
         self.lista_auto = ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True)
 
@@ -56,7 +59,7 @@ class View:
         self.input_modello_auto = ft.TextField(label="Modello")
 
         # ListView per mostrare il risultato della ricerca auto per modello
-        self.lista_auto_ricerca = ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True)
+        self.lista_auto_ricerca = ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True,)
 
         # --- PULSANTI e TOGGLE associati a EVENTI ---
         self.toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=self.cambia_tema)
@@ -64,6 +67,7 @@ class View:
 
         # Altri Pulsanti da implementare (es. "Mostra" e "Cerca")
         pulsante_mostra_auto = ft.ElevatedButton(text="Mostra", on_click=self.controller.mostra_auto)
+
 
         # --- LAYOUT ---
         self.page.add(
@@ -82,8 +86,9 @@ class View:
             ft.Divider(),
 
             # Sezione 3
-            ft.Text(value='Lista Automobili', size=16, weight=ft.FontWeight.BOLD),
-            pulsante_mostra_auto
+            ft.Row( spacing=20, controls=[self.text_lista_auto,pulsante_mostra_auto], alignment=ft.MainAxisAlignment.START),
+            self.lista_auto,
+            ft.Divider(),
 
             # Sezione 4
             # TODO

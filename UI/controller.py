@@ -30,4 +30,6 @@ class Controller:
     # Altre Funzioni Event Handler
     def mostra_auto(self,e):
         lista_auto = self._model.get_automobili()
-        self._view.
+        for auto in lista_auto:
+            self._view.lista_auto.controls.append(ft.Text(auto))
+        self._view.update()
