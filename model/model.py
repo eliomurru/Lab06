@@ -53,4 +53,13 @@ class Autonoleggio:
             :param modello: il modello dell'automobile
             :return: una lista con tutte le automobili di marca e modello indicato oppure None
         """
-        # TODO
+        query = "SELECT * FROM automobile WHERE LOWER(modello) = LOWER(%s)"
+        self.cursor.execute(query, (modello,))
+
+        risultati = self.cursor.fetchall()
+
+        if not risultati:
+            return None
+
+        automobili = [Automobile(*r) for r in risultati]
+        return automobili
